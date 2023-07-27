@@ -19,7 +19,8 @@ test.each([
     input,
     plugins: [nodeGlobals({ baseDir: process.cwd() })]
   })
-  const { code } = await bundle.generate({ format: 'esm' })
+  const result = await bundle.generate({ format: 'esm' });
+  const { code } = result.output[0];
   expect(readFileSync(input, 'utf-8')).toMatchSnapshot('input');
   expect(code).toMatchSnapshot('output');
 })

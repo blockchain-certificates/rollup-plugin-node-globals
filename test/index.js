@@ -1,6 +1,6 @@
 
 var rollup = require( 'rollup' );
-var nodeResolve = require( 'rollup-plugin-node-resolve' );
+var nodeResolve = require( '@rollup/plugin-node-resolve' );
 var globals = require( '../dist/rollup-plugin-node-globals.cjs' );
 var path = require('path');
 var vm = require('vm');

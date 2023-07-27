@@ -1,4 +1,3 @@
-const { readFileSync } = require('fs');
 const { rollup } = require('rollup');
 const nodeGlobals = require('../');
 
@@ -22,7 +21,8 @@ test.each([
     input: 'test/fixtures/mixed.js',
     plugins: [nodeGlobals(options)]
   })
-  const { code } = await bundle.generate({ format: 'esm' })
+  const result = await bundle.generate({ format: 'esm' });
+  const { code } = result.output[0];
   expect(code).toMatchSnapshot();
 })
 
